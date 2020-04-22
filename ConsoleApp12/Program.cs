@@ -17,12 +17,12 @@ namespace ConsoleApp12
                new Student(){Id = 4, Name = "Zigmas", Age = 19 , AverageMark = 9, IsGettingTuition = true},
                new Student(){Id = 5, Name = "Emilis", Age = 22 , AverageMark = 10, IsGettingTuition = false},
             };
-/*
+
             var result = studentList.FindAll(student => student.Age > 20);
             result.ForEach(student => Console.WriteLine(student.Name));
 
             var result2 = studentList.FindAll(student => student.AverageMark > 8 && student.IsGettingTuition);
-            result2.ForEach(student => Console.WriteLine(student.Name));*/
+            result2.ForEach(student => Console.WriteLine(student.Name));
 
             var result3 = studentList.FindAll(student => student.AverageMark > 4 && student.Name.Length < 7);
             result3.ForEach(student => Console.WriteLine(student.Name));
