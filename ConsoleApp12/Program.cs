@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ConsoleApp12
 {
@@ -18,14 +19,26 @@ namespace ConsoleApp12
                new Student(){Id = 5, Name = "Emilis", Age = 22 , AverageMark = 10, IsGettingTuition = false},
             };
 
-            var result = studentList.FindAll(student => student.Age > 20);
+         /*   var result = studentList.FindAll(student => student.Age > 20);
             result.ForEach(student => Console.WriteLine(student.Name));
 
             var result2 = studentList.FindAll(student => student.AverageMark > 8 && student.IsGettingTuition);
             result2.ForEach(student => Console.WriteLine(student.Name));
 
             var result3 = studentList.FindAll(student => student.AverageMark > 4 && student.Name.Length < 7);
-            result3.ForEach(student => Console.WriteLine(student.Name));
+            result3.ForEach(student => Console.WriteLine(student.Name));*/
+
+
+            IEnumerable<Student> result1 = studentList.Where(student => student.AverageMark > 8 && student.IsGettingTuition);
+            List<Student> result2 = studentList.Where(student => student.AverageMark > 8 && student.IsGettingTuition).ToList();
+
+       
+            var names = result1.Where(student => student.AverageMark > 8 && student.IsGettingTuition).Select(student=>student.Name).ToList();
+         
+         names.ForEach(names => Console.WriteLine(names));
+
+           
+
         }
      
     }
