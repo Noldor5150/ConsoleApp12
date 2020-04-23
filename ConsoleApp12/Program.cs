@@ -37,19 +37,35 @@ namespace ConsoleApp12
 
               names.ForEach(names => Console.WriteLine(names));
      */
-            List<int> numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            /*  List<int> numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
-            List<int> result1 = numbers.Where(number => number % 2 == 1).ToList();
+              List<int> result1 = numbers.Where(number => number % 2 == 1).ToList();
+
+              List<int> result2 = numbers.Where(number => number % 5 == 0).ToList();
+              result2.ForEach(number => Console.WriteLine(number));
+
+              bool result3 = numbers.Contains(7);
+
+              Console.WriteLine(result3);
+
+              bool result4 = numbers.Any(number => number % 11== 0);
+              Console.WriteLine(result4);*/
+
+
+            var result = studentList.OrderBy(student => student.AverageMark).Reverse().ToList();
             
-            List<int> result2 = numbers.Where(number => number % 5 == 0).ToList();
-            result2.ForEach(number => Console.WriteLine(number));
 
-            bool result3 = numbers.Contains(7);
+            var result2 = studentList.OrderBy(student => student.Age).Reverse().ToList();
+            
 
-            Console.WriteLine(result3);
+            
+            
+            
+            var result3 = studentList.OrderBy(student => student.Age).ThenByDescending(student=> student.AverageMark).ToList();
+            result3.ForEach(student => Console.WriteLine(student.AverageMark));
 
-            bool result4 = numbers.Any(number => number % 11== 0);
-            Console.WriteLine(result4);
+
+
         }
      
     }
