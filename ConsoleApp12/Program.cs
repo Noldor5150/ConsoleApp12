@@ -19,26 +19,37 @@ namespace ConsoleApp12
                new Student(){Id = 5, Name = "Emilis", Age = 22 , AverageMark = 10, IsGettingTuition = false},
             };
 
-         /*   var result = studentList.FindAll(student => student.Age > 20);
-            result.ForEach(student => Console.WriteLine(student.Name));
+            /*   var result = studentList.FindAll(student => student.Age > 20);
+               result.ForEach(student => Console.WriteLine(student.Name));
 
-            var result2 = studentList.FindAll(student => student.AverageMark > 8 && student.IsGettingTuition);
-            result2.ForEach(student => Console.WriteLine(student.Name));
+               var result2 = studentList.FindAll(student => student.AverageMark > 8 && student.IsGettingTuition);
+               result2.ForEach(student => Console.WriteLine(student.Name));
 
-            var result3 = studentList.FindAll(student => student.AverageMark > 4 && student.Name.Length < 7);
-            result3.ForEach(student => Console.WriteLine(student.Name));*/
+               var result3 = studentList.FindAll(student => student.AverageMark > 4 && student.Name.Length < 7);
+               result3.ForEach(student => Console.WriteLine(student.Name));*/
 
 
-            IEnumerable<Student> result1 = studentList.Where(student => student.AverageMark > 8 && student.IsGettingTuition);
-            List<Student> result2 = studentList.Where(student => student.AverageMark > 8 && student.IsGettingTuition).ToList();
+            /*     IEnumerable<Student> result1 = studentList.Where(student => student.AverageMark > 8 && student.IsGettingTuition);
+                 List<Student> result2 = studentList.Where(student => student.AverageMark > 8 && student.IsGettingTuition).ToList();
 
-       
-            var names = result1.Where(student => student.AverageMark > 8 && student.IsGettingTuition).Select(student=>student.Name).ToList();
-         
-         names.ForEach(names => Console.WriteLine(names));
 
-           
+                 var names = result1.Where(student => student.AverageMark > 8 && student.IsGettingTuition).Select(student=>student.Name).ToList();
 
+              names.ForEach(names => Console.WriteLine(names));
+     */
+            List<int> numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+            List<int> result1 = numbers.Where(number => number % 2 == 1).ToList();
+            
+            List<int> result2 = numbers.Where(number => number % 5 == 0).ToList();
+            result2.ForEach(number => Console.WriteLine(number));
+
+            bool result3 = numbers.Contains(7);
+
+            Console.WriteLine(result3);
+
+            bool result4 = numbers.Any(number => number % 11== 0);
+            Console.WriteLine(result4);
         }
      
     }
