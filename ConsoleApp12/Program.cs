@@ -51,22 +51,28 @@ namespace ConsoleApp12
               bool result4 = numbers.Any(number => number % 11== 0);
               Console.WriteLine(result4);*/
 
-
+/*
             var result = studentList.OrderBy(student => student.AverageMark).Reverse().ToList();
-            
-
             var result2 = studentList.OrderBy(student => student.Age).Reverse().ToList();
-            
 
-            
-            
-            
-            var result3 = studentList.OrderBy(student => student.Age).ThenByDescending(student=> student.AverageMark).ToList();
-            result3.ForEach(student => Console.WriteLine(student.AverageMark));
+            var result3 = studentList.OrderBy(student => student.Age).ThenByDescending(student => student.AverageMark).ToList();
+            result3.ForEach(student => Console.WriteLine(student.AverageMark));*/
+
+            var groups = from student in studentList
+                         where student.Age > 10
+                         group student by (student.Age - 1) / 10;
+            foreach (IGrouping<int, Student> grouping in groups)
+            {
+                Console.WriteLine("Students in group " + grouping.Key + "0" + "..." + (grouping.Key + 1) + "0");
+                foreach (Student student in grouping)
+                {
+                    Console.WriteLine("\t" + student);
+                }
+            }
 
 
 
         }
-     
+
     }
 }
